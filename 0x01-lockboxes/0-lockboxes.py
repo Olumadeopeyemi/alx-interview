@@ -1,28 +1,24 @@
 #!/usr/bin/python3
-""" Module that checks locked boxes """
+"""
+Module that determines if all the boxes can be opened.
+"""
 
 
 def canUnlockAll(boxes):
-    """ Method that determines if all boxes can be opened """
+    """
+    Prototype that determines if all the boxes can be opened.
+    """
+    size = len(boxes)  # size of the list of boxes.
+    checkbox = {}  # dictionary that will contain the boxes that can be opened.
+    index = 0  # index of the box that will be checked.
 
-    if boxes == 0:
-        return False
-
-    if not isinstance(boxes, list):
-
-    if len(boxes) == 0:
-        return False
-
-    check = [0]
-    list_ing = [i for i in range(len(boxes))]
-    for in_check in check:
-        for in_boxes in boxes[in_check]:
-            if in_boxes not in check and in_boxes in list_ing:
-                if in_boxes >= len(boxes):
-                    return False
-                check.append(in_boxes)
-
-                if len(check) == len(boxes):
-        return True
-    else:
-        return False
+    for keys in boxes:  # for each box in the list of boxes.
+        if len(keys) == 0 or index == 0:
+            checkbox[index] = -1
+        for key in keys:
+            if key < size and key != index:
+                checkbox[key] = key  # the box is added to the dictionary.
+        if len(checkbox) == size:
+            return True  # all the boxes can be opened.
+        index += 1
+    return False
